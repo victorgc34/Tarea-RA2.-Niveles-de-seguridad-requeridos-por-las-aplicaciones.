@@ -1,0 +1,3 @@
+# Introducción
+
+En esta actividad se analiza la aplicación desarrollada en Python desde la perspectiva de la seguridad, utilizando el estándar OWASP ASVS como marco de verificación. Se evalúan controles relacionados con acceso, validación de entrada y protección frente a código malicioso, se documenta el grado de cumplimiento mediante una checklist y se reflexiona sobre los riesgos y la aplicabilidad del modelo ASVS. Además, se identifican herramientas automáticas que pueden facilitar la comprobación de controles de acceso y se establece el nivel de seguridad adecuado según el entorno y la criticidad de la aplicación.
