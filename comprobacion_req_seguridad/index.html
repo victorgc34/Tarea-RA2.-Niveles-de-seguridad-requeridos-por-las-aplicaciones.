@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>3.Comprobación de los requisistos de seguridad de una aplicación - Documentación de la tarea RA2</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Documentación de la tarea RA2</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../trazado_vul/" class="nav-link">1.Trazado de vulnerabilidades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../analisis_maq_vul/" class="nav-link">2.Análisis de máquinas vulnerables</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">3.Comprobación de los requisistos de seguridad de una aplicación</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../reflexion/" class="nav-link">4.Reflexión</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../analisis_maq_vul/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../reflexion/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#apartado-3-comprobacion-de-los-requisitos-de-seguridad-de-una-aplicacion" class="nav-link">Apartado 3 - Comprobación de los requisitos de Seguridad de una aplicación.</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#nivel-de-seguridad-requerido" class="nav-link">Nivel de seguridad requerido</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#analisis-del-grafico-de-la-hoja-de-calculos" class="nav-link">Análisis del gráfico de la hoja de cálculos</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#herramientas-automaticas-para-la-comprobacion-de-general-access-control-design" class="nav-link">Herramientas automáticas para la comprobación de “General Access Control Design”</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#conclusion" class="nav-link">Conclusión</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="apartado-3-comprobacion-de-los-requisitos-de-seguridad-de-una-aplicacion">Apartado 3 - Comprobación de los requisitos de Seguridad de una aplicación.</h1>
+<p>En este apartado consisten en analizar la aplicación desarrollada previamente en Python (Tarea1) desde el punto de vista de la seguridad. </p>
+<p>Para ello se utiliza el estándar OWASP ASVS como marco de verificación de requisitos.  En este se elaborarán una checklist donde se evaluarán controles relacionados el código malicioso.</p>
+<p>Finalmente, se reflexionará sobre el grado de cobertura obtenido y la utilidad del modelo ASVS en aplicaciones reales.</p>
+<hr />
+<h2 id="nivel-de-seguridad-requerido">Nivel de seguridad requerido</h2>
+<p>Para establecer que nivel de protección adecuado, tenemos que analizar concretamente el uso al que va ha estar expuesto nuestro programa.</p>
+<p>Este programa es el encargado de realizar un lavado de los coches (un lavadero), por lo que se encarga de cobrar a los clientes y iniciar el lavado pasando por diferentes fases. </p>
+<p>Entonces, para evaluar el nivel de seguridad requerido, nos basaremos en “Finalmente, se reflexionará sobre el grado de cobertura obtenido y la utilidad del modelo ASVS en aplicaciones <strong>“La metodología de evaluación de OWASP</strong>”:</p>
+<ul>
+<li>Probabilidad del riesgo: <strong>BAJA</strong></li>
+<li>Tipo de riesgo: caída del lavadero o el pago incorrecto del lavado.</li>
+<li>Impacto técnico: Mínimo (Posible caída del lavadero)</li>
+<li>Impacto en el negocio: Mínimo (Daño económico mínimo)</li>
+</ul>
+<p>Con esta breve información, podemos identificar que el entorno en el que se ejecutará el programa y su uso, no tiene capacidad de realizar un ataque que afecte gravemente a la empresa, ya que este tipo de programas se suelen utilizar en un entorno totalmente aislado (sin conexión a internet) y que no repercuten ningún tipo de amenaza para otro activo de la empresa que no sea el propio lavadero. Por ello, una conclusión razonable es que el <strong>nivel de seguridad requerido sea de 1 (El mas bajo),</strong> ya que realmente es un software genérico<strong>.</strong></p>
+<hr />
+<h2 id="analisis-del-grafico-de-la-hoja-de-calculos">Análisis del gráfico de la hoja de cálculos</h2>
+<p>El gráfico generado a partir de la hoja de cálculo muestra un nivel nulo de cumplimiento de los requisitos del estándar OWASP ASVS. De un total de 16 criterios evaluados, únicamente se cumple, indicando que la aplicación carece prácticamente de controles de seguridad implementados.</p>
+<p>Ninguno de los apartados tiene un criterio válido, por lo que no cumple de ninguna manera el OWAPS ASVS level 1.</p>
+<p><img alt="" src="../img-3/input-valid.png" /></p>
+<p><img alt="" src="../img-3/mal-code.png" /></p>
+<p><img alt="" src="../img-3/resultado.png" /></p>
+<hr />
+<h2 id="herramientas-automaticas-para-la-comprobacion-de-general-access-control-design">Herramientas automáticas para la comprobación de “General Access Control Design”</h2>
+<p>Aunque muchos controles de diseño de acceso requieren revisión manual, existen herramientas automáticas que ayudan a detectar fallos relacionados con la autorización y la protección de recursos:</p>
+<h3 id="1-owasp-zap">1. OWASP ZAP</h3>
+<p>Permite identificar:</p>
+<ul>
+<li>Accesos a endpoints sin autenticación</li>
+<li>Manipulación de parámetros para probar IDOR</li>
+<li>Fallos en restricciones de rutas protegidas</li>
+<li>Bypass de controles del lado cliente</li>
+</ul>
+<p>Muy útil para comprobar si el backend realmente valida permisos.</p>
+<hr />
+<h3 id="2-burp-suite">2. Burp Suite</h3>
+<p>Facilita pruebas automáticas de:</p>
+<ul>
+<li>Forzado de navegación a recursos restringidos</li>
+<li>Modificación de roles y parámetros sensibles</li>
+<li>Acceso horizontal entre usuarios</li>
+<li>Detección de endpoints administrativos expuestos</li>
+</ul>
+<p>Incluye módulos de fuzzing y testing de autorización.</p>
+<hr />
+<h2 id="conclusion">Conclusión</h2>
+<p>El análisis realizado demuestra que, aunque la aplicación del lavadero presenta un riesgo bajo y solo requiere un nivel ASVS 1, su grado actual de cumplimiento en seguridad es inexistente. La verificación evidencia que el desarrollo se centró únicamente en la funcionalidad, dejando sin implementar controles básicos recomendados por OWASP.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

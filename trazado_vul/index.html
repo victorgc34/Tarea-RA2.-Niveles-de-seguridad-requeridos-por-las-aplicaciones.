@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>1.Trazado de vulnerabilidades - Documentación de la tarea RA2</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Documentación de la tarea RA2</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">1.Trazado de vulnerabilidades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../analisis_maq_vul/" class="nav-link">2.Análisis de máquinas vulnerables</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../comprobacion_req_seguridad/" class="nav-link">3.Comprobación de los requisistos de seguridad de una aplicación</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../reflexion/" class="nav-link">4.Reflexión</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../analisis_maq_vul/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#apartado-1-trazado-de-la-vulnerabiliad" class="nav-link">Apartado 1 - Trazado de la vulnerabiliad.</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#indice" class="nav-link">Indice:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#fuentes-y-trazas-de-la-vulnerabilidad" class="nav-link">Fuentes y trazas de la vulnerabilidad</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#vulnerabilidad-encontrada" class="nav-link">Vulnerabilidad encontrada</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#riesgo-y-criticidad-de-cve-2024-0204" class="nav-link">Riesgo y criticidad de “CVE-2024-0204”</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#debilidades-explotadas" class="nav-link">Debilidades explotadas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#informacion-de-uno-de-los-patrones-de-ataque" class="nav-link">Información de uno de los patrones de ataque</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#registro-cve" class="nav-link">Registro CVE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="apartado-1-trazado-de-la-vulnerabiliad">Apartado 1 - Trazado de la vulnerabiliad.</h1>
+<hr />
+<p>Durante esta sección, se detallan diferentes aspectos sobre la <strong>vulnerabilidad crítica de omisión de autenticación en GoAnywhere MFT de Fortra.</strong> El objetivo es identificar claramente el trazado, la información acerca de esta, el riesgo, criticidad y sus posibles debilidades que puedan ser explotadas.</p>
+<hr />
+<h2 id="indice">Indice:</h2>
+<ul>
+<li>Fuentes y trazas de la vulnerabilidad</li>
+<li>Vulnerabilidades encontradas</li>
+<li>Riesgo y criticidad de “<strong>CVE-2024-0204</strong>”</li>
+<li>Debilidades explotadas</li>
+<li>Información sobre uno de los patrones de ataque</li>
+<li>Registro CVE</li>
+</ul>
+<hr />
+<h2 id="fuentes-y-trazas-de-la-vulnerabilidad">Fuentes y trazas de la vulnerabilidad</h2>
+<p>La vulnerabilidad <strong>crítica de omisión de autenticación en GoAnywhere MFT de Fortra, se ha obtenido de este <a href="https://www.fortra.com/security/advisories/product-security/fi-2024-001">enlace</a>.</strong>  Concretamente es la vulnerabilidad <strong>CVE-2024-0204 en *GoAnywhere Managed File Transfer (MFT),</strong> cuya herramienta la desarrollo Fortra.*</p>
+<p>En el enlace pasado anteriormente, podemos ver los siguientes datos según Fortra:</p>
+<ul>
+<li>Criticidad: Critica</li>
+<li>Día de publicación: 22-enero-2024</li>
+<li>Vulnerabilidad:  CVE-2024-0204</li>
+</ul>
+<p><img alt="" src="../img-1/pagina_fortra.png" /></p>
+<hr />
+<h2 id="vulnerabilidad-encontrada">Vulnerabilidad encontrada</h2>
+<p>La vulnerabilidad <strong>Authentication Bypass en GoAnywhere MFT (CVE-2024-0204)</strong> es un fallo crítico que permite a un atacante <strong>no autenticado</strong> eludir los controles de acceso y <strong>crear cuentas administrativas</strong> mediante el componente de configuración inicial del sistema. Esto puede derivar en el <strong>compromiso total de la plataforma</strong>, acceso a información sensible y manipulación de transferencias de archivos.</p>
+<p>La mitigación principal consiste en <strong>actualizar GoAnywhere MFT a la versión 7.4.1 o superior</strong>, donde el problema ha sido corregido. Como medida alternativa, en <strong>implementaciones no basadas en contenedores</strong>, la vulnerabilidad puede eliminarse borrando el archivo <code>InitialAccountSetup.xhtml</code> del directorio de instalación y reiniciando los servicios. En <strong>entornos con contenedores</strong>, se recomienda reemplazar dicho archivo por uno vacío y reiniciar la instancia.</p>
+<p><img alt="" src="../img-1/notas_vulnerabilidad.png" /></p>
+<hr />
+<h2 id="riesgo-y-criticidad-de-cve-2024-0204">Riesgo y criticidad de “<strong>CVE-2024-0204</strong>”</h2>
+<p>En el NIST, podemos ver que en su base de datos se encuentra registrada esta vulnerabilidad. Desde esta, podemos observar que dicha vulnerabilidad tiene una valoración de 9.8 y esta marcada como crítica (Según el estadar CVSS 3.1).</p>
+<p><img alt="" src="../img-1/metricas_nits.png" /></p>
+<p>En esta podemos observar el vector(<strong>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</strong>), el cual nos indica:</p>
+<ul>
+<li>
+<p><strong>AV – Vector de ataque: N (Network)</strong></p>
+<p>La vulnerabilidad puede explotarse <strong>remotamente a través de la red</strong>, sin necesidad de acceso físico o local.</p>
+</li>
+<li>
+<p><strong>AC – Complejidad del ataque: L (Low)</strong></p>
+<p>El ataque es <strong>sencillo de ejecutar</strong> y no requiere condiciones especiales.</p>
+</li>
+<li>
+<p><strong>PR – Privilegios requeridos: N (None)</strong></p>
+<p>El atacante <strong>no necesita autenticarse</strong> ni contar con privilegios previos.</p>
+</li>
+<li>
+<p><strong>UI – Interacción del usuario: N (None)</strong></p>
+<p>No se requiere ninguna acción por parte de un usuario legítimo para que el ataque tenga éxito.</p>
+</li>
+<li>
+<p><strong>S – Alcance: U (Unchanged)</strong></p>
+<p>El impacto del ataque se limita <strong>al mismo componente vulnerable</strong>, sin afectar a otros sistemas.</p>
+</li>
+<li>
+<p><strong>C – Impacto en la confidencialidad: H (High)</strong></p>
+<p>Posible <strong>exposición total de información sensible</strong>.</p>
+</li>
+<li>
+<p><strong>I – Impacto en la integridad: H (High)</strong></p>
+<p>El atacante puede <strong>modificar o manipular datos</strong> de forma crítica.</p>
+</li>
+<li>
+<p><strong>A – Impacto en la disponibilidad: H (High)</strong></p>
+<p>Puede provocar <strong>interrupción completa del servicio</strong> o denegación de acceso.</p>
+</li>
+</ul>
+<p><img alt="" src="../img-1/vector.png" /></p>
+<hr />
+<h2 id="debilidades-explotadas">Debilidades explotadas</h2>
+<p>En este caso, solo hay una debilidad detectada, que es CWE-425.</p>
+<p><img alt="" src="../img-1/debilidades_enumeradas.png" /></p>
+<p>Para analizarla, iremos a al <a href="https://cwe.mitre.org/data/definitions/425.html">MITRE</a>, el cual nos indica que esta debilidad ocurre debido a que la no aplica controles de autorización en las URLs, scripts o archivos. Este fallo, permite que los atacantes alcancen recursos sensibles <strong>sin pasar por el flujo de navegación adecuado.</strong></p>
+<p>Con ello, los atacantes pueden vulnerar confidencialidad, integridad, disponibilidad, control de acceso ya que pueden llegar a realizar:</p>
+<ul>
+<li>Lectura de datos.</li>
+<li>Modificación de datos</li>
+<li>Ejecución de comandos.</li>
+<li>Ganar privilegios</li>
+</ul>
+<p><img alt="" src="../img-1/cwe-425.png" /></p>
+<p>Los patrones de ataque utilizados son:</p>
+<ul>
+<li>Indexación de directorios</li>
+<li>Detectar páginas web no publicadas</li>
+<li>Detectar servicios web no publicados</li>
+<li>Negociación de claves de ataque Bluetooth (KNOB)</li>
+<li>Navegación forzosa</li>
+</ul>
+<p><img alt="" src="../img-1/cwe-425-at.png" /></p>
+<hr />
+<h2 id="informacion-de-uno-de-los-patrones-de-ataque">Información de uno de los patrones de ataque</h2>
+<p>Podemos acceder a información sobre los <strong>patrones de ataque</strong> en la lista mantenida por <strong>MITRE</strong> en la dirección <strong>capec.mitre.org</strong>.</p>
+<p>En el caso que nos atañe, hemos determinado que la vulnerabilidad que estamos analizando puede explotarse mediante el <strong>patrón de ataque CAPEC‑127 (Directory Indexing)</strong>, el cual describe ataques basados en la <strong>indexación no controlada de directorios</strong> en servidores web.</p>
+<p>Podemos observar que este ataque consiste en <strong>provocar que el servidor web muestre el contenido de un directorio</strong>, en lugar de servir un archivo concreto.</p>
+<p>El atacante puede aprovechar esta situación para <strong>explorar la estructura interna del sistema</strong>, descubriendo archivos y directorios que no deberían ser accesibles públicamente, como copias de seguridad, archivos de configuración o scripts internos.</p>
+<p><img alt="" src="../img-1/capec.png" /></p>
+<hr />
+<h2 id="registro-cve">Registro CVE</h2>
+<p>Este es el registro sobre la vulnerabilidad <strong>CVE-2024-0204, la cual contiene información sobre la vulnerabilidad,</strong> que puede ser usado para el análisis y la automatización de respuestas.</p>
+<p>El siguiente enlace redirige al .json oficial: <a href="https://cveawg.mitre.org/api/cve/CVE-2024-0204">enlace</a>.</p>
+<p><img alt="" src="../img-1/reguistro-cve.png" /></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
